@@ -25,10 +25,14 @@ jobs:
       - name: Fetch trending projects
         run: |
           python fetch_data.py
+        env:
+          GH_API_TOKEN: ${{ secrets.GH_API_TOKEN }}
 
       - name: Generate static HTML
         run: |
           python generate_html.py
+        env:
+          GH_API_TOKEN: ${{ secrets.GH_API_TOKEN }}
 
       - name: Clean dist folder
         run: |
