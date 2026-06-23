@@ -8,7 +8,7 @@ headers = {
 }
 
 def get_github_api_token():
-    token = os.getenv("GITHUB_API_TOKEN")
+    token = os.getenv("GH_API_TOKEN")
     if not token:
         print("⚠️ API Token 未设置，将使用默认权限（限制请求次数）")
         return ""
