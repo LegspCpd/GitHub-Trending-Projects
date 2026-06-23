@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>GitHub 最火项目 - 自动抓取</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>GitHub 当前最火的项目（按 Star 数排列）</h1>
+    <div class="trending-list">
+        {% for repo in repos %}
+            <div class="repo-card">
+                <h2><a href="{{ repo.html_url }}" target="_blank">{{ repo.name }}</a></h2>
+                <p>{{ repo.description or '暂无描述' }}</p>
+                <p><strong>语言:</strong> {{ repo.language or '未知语言' }}</p>
+                <p><strong>Star 数:</strong> {{ repo.stargazers_count }}</p>
+                <p><small>更新时间: {{ repo.updated_at }}</small></p>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
