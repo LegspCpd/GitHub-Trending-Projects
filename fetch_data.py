@@ -1,3 +1,5 @@
+from fetch_data import fetch_trending_repos
+
 import requests
 import os
 import json
